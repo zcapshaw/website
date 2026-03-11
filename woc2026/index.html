@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try Flashquotes Live | World of Coffee 2026</title>
+    <meta
+      name="description"
+      content="See how instant booking works. Submit a real request and watch what happens on the operator side. No sign-up required."
+    />
+    <style>
+      :root {
+        --bg: #0c1020;
+        --surface: #121933;
+        --surface-soft: #1a2345;
+        --text: #f5f7ff;
+        --muted: #c4cee8;
+        --accent: #57d9a3;
+        --accent-dark: #2fb884;
+        --stroke: #2a3767;
+        --max: 1024px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial,
+          sans-serif;
+        background: linear-gradient(180deg, #0b1022 0%, #0c1124 100%);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        width: min(100% - 2rem, var(--max));
+        margin-inline: auto;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .label {
+        margin: 0 0 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 7vw, 3.4rem);
+        line-height: 1.05;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 5.8vw, 2.3rem);
+        line-height: 1.2;
+      }
+
+      .sub {
+        margin-top: 1rem;
+        color: var(--muted);
+      }
+
+      .micro {
+        margin-top: 1rem;
+        color: #dfe6ff;
+        font-size: 0.96rem;
+      }
+
+      .btn {
+        display: inline-block;
+        border: 0;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #052014;
+        padding: 0.85rem 1.25rem;
+        font-weight: 700;
+        text-decoration: none;
+        margin-top: 1.25rem;
+      }
+
+      .btn:hover {
+        background: var(--accent-dark);
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .visual-placeholder,
+      .calendar-placeholder,
+      .podcast-art {
+        border: 1px dashed #4b5a95;
+        border-radius: 16px;
+        background: rgba(26, 35, 69, 0.5);
+        display: grid;
+        place-items: center;
+        color: #98a9de;
+        text-align: center;
+      }
+
+      .visual-placeholder {
+        min-height: 220px;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--stroke);
+        border-radius: 16px;
+        padding: 1rem;
+      }
+
+      form {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+      }
+
+      .help {
+        display: block;
+        margin-top: 0.2rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        margin-top: 0.4rem;
+        padding: 0.75rem;
+        border-radius: 10px;
+        border: 1px solid #425184;
+        background: #0f1734;
+        color: var(--text);
+      }
+
+      textarea {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .stats {
+        display: grid;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      blockquote {
+        margin: 0;
+        padding: 1rem;
+        border-left: 3px solid var(--accent);
+        background: var(--surface-soft);
+        border-radius: 10px;
+        color: #e4eaff;
+      }
+
+      .quotes {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .calendar-placeholder {
+        min-height: 280px;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+
+      .podcast-art {
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 1 / 1;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+
+      .link-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1rem;
+      }
+
+      footer {
+        border-top: 1px solid var(--stroke);
+        padding: 2rem 0 3rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        section {
+          padding: 5rem 0;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1.2fr 1fr;
+          align-items: center;
+          gap: 1.2rem;
+        }
+
+        .stats {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .quotes {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="wrap hero-grid">
+        <div>
+          <h1>You just booked a coffee cart.<br /><span style="color:#57d9a3">(well, almost)</span></h1>
+          <p class="sub">
+            See what instant booking looks like from the inside. Live demo, right now, no sign-up required.
+            Brought to you at World of Coffee 2026.
+          </p>
+          <p class="micro">
+            200+ coffee cart and mobile bar operators use Flashquotes to get booked faster. Try it as the customer.
+          </p>
+          <a class="btn" href="#demo">Try the Live Demo</a>
+        </div>
+        <div class="visual-placeholder">Screenshot/GIF placeholder<br />for booking flow</div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="wrap">
+        <p class="label">LIVE DEMO</p>
+        <h2>You're the customer. Book a coffee cart.</h2>
+        <p class="sub">
+          Fill out this form exactly like you would if you were planning an event and wanted to hire a coffee cart.
+          Then watch what happens on the other side.
+        </p>
+
+        <div class="card" id="demo-form-card">
+          <p class="micro">
+            This is a real Flashquotes intake form. When you submit, you'll see what the operator gets instantly. No
+            spam. No follow-up sales calls. Just the demo.
+          </p>
+          <form id="demo-form">
+            <label>
+              Your Name
+              <input type="text" placeholder="First and last" required />
+              <span class="help">So the quote feels personal.</span>
+            </label>
+            <label>
+              Email Address
+              <input type="email" placeholder="you@yourcompany.com" required />
+              <span class="help">This is where the demo confirmation goes.</span>
+            </label>
+            <label>
+              What's the occasion?
+              <input type="text" placeholder="Corporate event, wedding, birthday, other..." required />
+              <span class="help">Coffee carts show up everywhere.</span>
+            </label>
+            <label>
+              Approximate guest count
+              <input type="text" placeholder="50, 100, 500..." required />
+              <span class="help">Helps us size the service.</span>
+            </label>
+            <label>
+              Event date or rough timeframe
+              <input type="text" placeholder="Pick a date or type 'flexible'" required />
+              <span class="help">Even a ballpark works.</span>
+            </label>
+            <label>
+              Where is the event?
+              <input type="text" placeholder="City, venue, or zip code" required />
+            </label>
+            <label>
+              Anything else? optional
+              <textarea placeholder="Oat milk only crowd? Outdoor setup? Say it here."></textarea>
+            </label>
+            <button class="btn" type="submit">Send My Request</button>
+          </form>
+        </div>
+
+        <div class="card hidden" id="demo-success-card">
+          <h2>Done. Here's what just happened.</h2>
+          <p class="sub">
+            On the operator's side, that request just landed as a hot lead. With Flashquotes, they get notified
+            instantly and can send back a customized quote in minutes, not days. No phone tag. No back-and-forth email
+            chains. Just a request in, a quote out, and a booking confirmed. That's the whole idea.
+          </p>
+          <p class="micro">Want to see it from the operator side? Book a 15-minute walkthrough.</p>
+          <a class="btn" href="#schedule">Schedule a Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="label">WHY IT WORKS</p>
+        <h2>200+ mobile event businesses. One platform.</h2>
+
+        <div class="stats">
+          <div class="card stat"><strong>200+</strong>Active Flashquotes operators</div>
+          <div class="card stat"><strong>Instant</strong>Quote delivery after every request</div>
+          <div class="card stat"><strong>Minutes</strong>Average time from lead to quote</div>
+        </div>
+
+        <div class="quotes">
+          <blockquote>
+            "Before Flashquotes, I was losing leads every week just from slow response times. Now I quote in minutes
+            and my booking rate has gone way up." — [Placeholder Name], [City] Coffee Cart Owner
+          </blockquote>
+          <blockquote>
+            "It handles the intake, the quoting, and the follow-up. I basically just show up and do the events now."
+            — [Placeholder Name], Mobile Espresso Bar Operator
+          </blockquote>
+        </div>
+
+        <a class="btn" href="#demo">Try It Yourself</a>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="wrap">
+        <p class="label">WANT THE FULL PICTURE?</p>
+        <h2>Pick a time. We'll walk you through everything.</h2>
+        <p class="sub">
+          The demo form above shows you the customer view. A live call shows you the full operator experience,
+          including your dashboard, lead flow, quoting tools, and booking confirmation.
+        </p>
+        <p class="micro">15 minutes. No prep needed. Pick a slot that works.</p>
+
+        <div class="calendar-placeholder">Calendly/Cal.com embed placeholder</div>
+
+        <p class="micro" style="margin-top:1rem">
+          Not ready to commit to a call? No worries. The demo form above is a great place to start.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="label">FROM THE FLASHQUOTES TEAM</p>
+        <h2>The podcast built for mobile event businesses.</h2>
+        <p class="sub">
+          Level 5 Live is where coffee cart operators, mobile bartenders, and event entrepreneurs come to grow their
+          business. Real talk. Real strategies. No fluff.
+        </p>
+        <p class="micro">
+          New episodes every week covering marketing, pricing, operations, and what's actually working for operators
+          right now.
+        </p>
+
+        <div class="podcast-art">Podcast artwork placeholder (300x300 minimum)</div>
+
+        <div class="link-buttons">
+          <a class="btn" href="#" aria-label="Apple Podcasts link">Apple Podcasts</a>
+          <a class="btn" href="#" aria-label="Spotify link">Spotify</a>
+        </div>
+
+        <p class="micro" style="margin-top:1rem">
+          Loved what you saw today? Follow Level 5 Live and bring your business to the next level.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">Flashquotes is the instant booking platform for mobile event businesses. flashquotes.com</div>
+    </footer>
+
+    <script>
+      const demoForm = document.getElementById("demo-form");
+      const formCard = document.getElementById("demo-form-card");
+      const successCard = document.getElementById("demo-success-card");
+
+      demoForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formCard.classList.add("hidden");
+        successCard.classList.remove("hidden");
+        successCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    </script>
+  </body>
+</html>
